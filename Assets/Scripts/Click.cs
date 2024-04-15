@@ -92,7 +92,7 @@ public class Click : MonoBehaviour
                 GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 lastBuildingHit.transform.parent.gameObject.SetActive(true);
                 lastBuildingHit.transform.parent.gameObject.GetComponent<Collider2D>().enabled = true;
-                Destroy(lastBuildingHit);
+                lastBuildingHit.transform.gameObject.SetActive(false);
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
             }
 
