@@ -90,7 +90,9 @@ public class Click : MonoBehaviour
             if (hit.collider.gameObject.name == "sell_button")
             {
                 GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                lastBuildingHit.gameObject.SetActive(false);
+                lastBuildingHit.transform.parent.gameObject.SetActive(true);
+                lastBuildingHit.transform.parent.gameObject.GetComponent<Collider2D>().enabled = true;
+                Destroy(lastBuildingHit);
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
             }
 
