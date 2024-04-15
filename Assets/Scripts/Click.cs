@@ -73,13 +73,14 @@ public class Click : MonoBehaviour
                 archerTowerIcon.gameObject.SetActive(false);
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
                 lastSignHit.gameObject.GetComponent<Collider2D>().enabled = false;
-                Instantiate(pfarcherTower, lastSignHitPosition, Quaternion.identity);
+                Instantiate(pfarcherTower, lastSignHitPosition, Quaternion.identity, lastSignHit.transform);
                 GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
 
             }
 
             if (hit.collider.gameObject.name == "pfarcherTower(Clone)")
             {
+                buildUI.gameObject.SetActive(false);
                 lastBuildingHit = hit.collider.gameObject;
                 hit.collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 sell_button.GetComponent<Collider2D>().enabled = true;

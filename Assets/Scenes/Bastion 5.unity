@@ -2871,6 +2871,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1269491392388734165, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269491392388734165, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269491392388734165, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269491392388734165, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.092
       objectReference: {fileID: 0}
@@ -2909,6 +2921,10 @@ PrefabInstance:
     - target: {fileID: 1269491392388734165, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269491392388734165, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2907732088918521762, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
       propertyPath: m_SortingOrder
@@ -3432,7 +3448,7 @@ MonoBehaviour:
   upgrade_circle: {fileID: 1138866873}
   upgrade_button: {fileID: 1081808815}
   sell_button: {fileID: 1037902170}
-  lastBuildingHit: {fileID: 0}
+  lastBuildingHit: {fileID: 2077386069}
   lastSignHit: {fileID: 0}
   lastSignHitPosition: {x: 0, y: 0}
   Ennemis_type_1: {fileID: 323562337}
@@ -4243,6 +4259,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2077386069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3214789726710784190, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+  m_PrefabInstance: {fileID: 1371737112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2097048016
 GameObject:
   m_ObjectHideFlags: 0
