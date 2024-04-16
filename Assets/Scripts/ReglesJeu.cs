@@ -4,8 +4,12 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DebutJeu : MonoBehaviour
+public class ReglesJeu : MonoBehaviour
 {
+    void Start()
+    {
+        GameObject.Find("transitionSlide 3").gameObject.GetComponent<Animator>().enabled = true;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -21,7 +25,7 @@ public class DebutJeu : MonoBehaviour
         if (hit.collider != null)
         {
             Debug.Log(hit.collider.gameObject.name);
-            if (hit.collider.gameObject.name == "Bastion Start")
+            if (hit.collider.gameObject.name == "boutton continuer")
             {
                 Invoke("LoadScene", 1f);
                 GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = true;
@@ -32,6 +36,6 @@ public class DebutJeu : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene("Bastion Regles");
+        SceneManager.LoadScene("Bastion 5");
     }
 }

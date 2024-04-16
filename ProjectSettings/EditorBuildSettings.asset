@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bastion 5.unity
     guid: 99c1bc782dafed741b73486512a649ea
+  - enabled: 1
+    path: Assets/Scenes/Bastion Regles.unity
+    guid: 422fbd1333eeaab47bd7c7e599f2cdc8
+  - enabled: 1
+    path: Assets/Scenes/Bastion Debut.unity
+    guid: 2425d771fa0e7284cbc1140f7ea6691c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
