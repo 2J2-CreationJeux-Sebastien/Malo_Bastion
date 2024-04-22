@@ -21,10 +21,15 @@ public class Click : MonoBehaviour
     public GameObject lastSignHit;
     public Vector2 lastSignHitPosition;
 
+    public static int ennemisCount = 0;
+
     public GameObject Ennemis_type_1;
 
     public Vector2 spawnpoint;
     public GameObject waypoint_1;
+    public GameObject wave_warning;
+    public float timerWave;
+
 
     void Start()
     {   //Au debut du jeu il y a la tansition activer
@@ -42,6 +47,7 @@ public class Click : MonoBehaviour
         {
             CastRay();
         }
+        
     }
 
     void CastRay()
@@ -105,10 +111,22 @@ public class Click : MonoBehaviour
 
             if (hit.collider.gameObject.name == "wave_warning")
             {
+                timerWave += Time.deltaTime;
+                if (timerWave >= 5) { print("hello"); }
+                wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("debutWave", true);
+                Invoke("DeactivateWaveWarning", 1f);
+                Invoke("ActivateWaveWarning", 5f);
                 //position initial des ennemis
                 spawnpoint = new Vector2(waypoint_1.gameObject.transform.position.x, waypoint_1.gameObject.transform.position.y);
                 //Si on click wave_warning, ca creer un clone de ennemis
-                Instantiate(Ennemis_type_1, spawnpoint, Quaternion.identity);
+                GameObject cloneEnnemisType1 = Instantiate(Ennemis_type_1, spawnpoint, Quaternion.identity);
+                cloneEnnemisType1.SetActive(true);
+                ennemisCount++;
+                print(ennemisCount);
+                if (ennemisCount == 0) 
+                { 
+                    Invoke("ActivateWaveWarning", 5f); 
+                }
             }
         }
     }
@@ -117,4 +135,16 @@ public class Click : MonoBehaviour
         //Arret de la transition
         GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = false;
     }
+
+    void ActivateWaveWarning()
+    {
+        wave_warning.gameObject.SetActive(true);
+
+    }
+    void DeactivateWaveWarning()
+    {
+        wave_warning.gameObject.SetActive(false);
+        wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("debutWave", false);
+    }
+
 }
