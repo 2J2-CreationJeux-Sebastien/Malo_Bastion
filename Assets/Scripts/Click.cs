@@ -22,6 +22,7 @@ public class Click : MonoBehaviour
     public Vector2 lastSignHitPosition;
 
     public GameObject Ennemis_type_1;
+
     public Vector2 spawnpoint;
     public GameObject waypoint_1;
 
@@ -82,10 +83,9 @@ public class Click : MonoBehaviour
                 lastSignHit.gameObject.GetComponent<Collider2D>().enabled = false;
                 Instantiate(pfarcherTower, lastSignHitPosition, Quaternion.identity, lastSignHit.transform);
                 GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
-
             }
 
-            if (hit.collider.gameObject.name == "pfarcherTower(Clone)")
+            if (hit.collider.gameObject.tag == "archerTower")
             {
                 buildUI.gameObject.SetActive(false);
                 lastBuildingHit = hit.collider.gameObject;
@@ -114,7 +114,7 @@ public class Click : MonoBehaviour
     }
     void StopTransition() 
     {
-        ////Arret de la transition
+        //Arret de la transition
         GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = false;
     }
 }
