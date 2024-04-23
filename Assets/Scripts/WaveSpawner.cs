@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
 
-    public enum SpawnState { SPAWNING, WAITING, COUNTING };
+    public enum SpawnState { SPAWNING, WAITING};
 
     [System.Serializable]
     public class Wave
@@ -16,29 +17,18 @@ public class WaveSpawner : MonoBehaviour
         public float rate;
     }
     public Wave[] waves;
-    int nextWave = 0;
-
-    public Transform[] spawnPoints;
 
     public float timeBetweenWaves = 5f;
     float waveCountDown;
 
-    float searchCountDown = 1f;
-
-    SpawnState state = SpawnState.COUNTING;
+    SpawnState state = SpawnState.SPAWNING;
 
     void Start()
     {
         waveCountDown = timeBetweenWaves;
-        if (spawnPoints.Length == 0)
-        {
-            Debug.LogError("You forgot to put in spawnpoint, idiots");
-        }
     }
-
     void Update()
     {
-
         if (state == SpawnState.WAITING)
         {
             if (!EnemyIsAlive())
@@ -55,7 +45,7 @@ public class WaveSpawner : MonoBehaviour
         {
             if (state != SpawnState.SPAWNING)
             {
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                StartCoroutine(SpawnWave(waves[currentWave]));
             }
         }
         else
@@ -81,8 +71,6 @@ public class WaveSpawner : MonoBehaviour
 
     bool EnemyIsAlive()
     {
-
-
         if (GameObject.FindGameObjectWithTag("Enemy") == null)
         {
             return false;
@@ -100,17 +88,18 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < _wave.count; i++)
         {
-            SpawnEnemy(_wave.enemy);
+            SpawnEnemy();
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
         state = SpawnState.WAITING;
-
         yield break;
     }
 
-    void SpawnEnemy(Transform _enemy)
+    void SpawnEnemy()
     {
-        Instantiate(_enemy, _sp.position, _sp.rotation);
+        GameObject cloneEnnemisType1 = Instantiate(Ennemis_type_1, spawnpoint, Quaternion.identity);
+        cloneEnnemisType1.SetActive(true);
     }
 }
+*/
