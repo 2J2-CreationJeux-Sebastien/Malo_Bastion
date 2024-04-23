@@ -1239,6 +1239,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1319203579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &638749064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3214789726710784190, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+  m_PrefabInstance: {fileID: 1371737112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &657638621
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,14 +3479,14 @@ MonoBehaviour:
   upgrade_circle: {fileID: 1138866873}
   upgrade_button: {fileID: 1081808815}
   sell_button: {fileID: 1037902170}
-  lastBuildingHit: {fileID: 0}
+  lastBuildingHit: {fileID: 638749064}
   lastSignHit: {fileID: 0}
   lastSignHitPosition: {x: 0, y: 0}
   Ennemis_type_1: {fileID: 323562337}
   spawnpoint: {x: 0, y: 0}
   waypoint_1: {fileID: 771804218}
   wave_warning: {fileID: 1971455244}
-  timerWave: 0
+  currentWave: 1
 --- !u!1 &1611752225
 GameObject:
   m_ObjectHideFlags: 0
