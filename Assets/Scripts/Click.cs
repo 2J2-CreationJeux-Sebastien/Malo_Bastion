@@ -21,7 +21,7 @@ public class Click : MonoBehaviour
     public GameObject lastSignHit;
     public Vector2 lastSignHitPosition;
 
-    public static int ennemisCount = 0;
+    public static int ennemisCount = 20;
 
     public GameObject Ennemis_type_1;
 
@@ -111,9 +111,7 @@ public class Click : MonoBehaviour
 
             if (hit.collider.gameObject.name == "wave_warning")
             {
-                timerWave += Time.deltaTime;
-                if (timerWave >= 5) { print("hello"); }
-                wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("debutWave", true);
+                wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("WaveWarning", true);
                 Invoke("DeactivateWaveWarning", 1f);
                 Invoke("ActivateWaveWarning", 5f);
                 //position initial des ennemis
@@ -121,7 +119,7 @@ public class Click : MonoBehaviour
                 //Si on click wave_warning, ca creer un clone de ennemis
                 GameObject cloneEnnemisType1 = Instantiate(Ennemis_type_1, spawnpoint, Quaternion.identity);
                 cloneEnnemisType1.SetActive(true);
-                ennemisCount++;
+
                 print(ennemisCount);
                 if (ennemisCount == 0) 
                 { 
@@ -138,13 +136,13 @@ public class Click : MonoBehaviour
 
     void ActivateWaveWarning()
     {
-        wave_warning.gameObject.SetActive(true);
+        wave_warning.gameObject.GetComponent<Collider2D>().enabled = true;
+        wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("WaveWarning", false);
 
     }
     void DeactivateWaveWarning()
     {
-        wave_warning.gameObject.SetActive(false);
-        wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("debutWave", false);
+        wave_warning.gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
 }
