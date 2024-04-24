@@ -71,7 +71,7 @@ public class WaveSpawner : MonoBehaviour
 
     bool EnemyIsAlive()
     {
-        if (GameObject.FindGameObjectWithTag("Enemy") == null)
+        if (GameObject.FindGameObjectWithTag("Ennemis") == null)
         {
             return false;
         } 
