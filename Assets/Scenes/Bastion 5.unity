@@ -795,6 +795,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &323562344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1411126836016933937, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
+  m_PrefabInstance: {fileID: 4308804674554323520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &496838185
 GameObject:
   m_ObjectHideFlags: 0
@@ -3486,7 +3491,18 @@ MonoBehaviour:
   spawnpoint: {x: 0, y: 0}
   waypoint_1: {fileID: 771804218}
   wave_warning: {fileID: 1971455244}
-  currentWave: 1
+  waves:
+  - name: 1
+    enemy:
+    - {fileID: 323562344}
+    count: 10
+    rate: 1
+  - name: 2
+    enemy:
+    - {fileID: 323562344}
+    count: 20
+    rate: 2
+  timeBetweenWaves: 5
 --- !u!1 &1611752225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,7 +4707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2118938111938581083, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
       propertyPath: m_TagString
-      value: ennemisType1
+      value: ennemis
       objectReference: {fileID: 0}
     - target: {fileID: 8899969074035384093, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
       propertyPath: moveSpeed

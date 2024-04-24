@@ -6,6 +6,7 @@ TagManager:
   tags:
   - archerTower
   - ennemisType1
+  - ennemis
   layers:
   - Default
   - TransparentFX

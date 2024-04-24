@@ -28,7 +28,22 @@ public class Click : MonoBehaviour
     public Vector2 spawnpoint;
     public GameObject waypoint_1;
     public GameObject wave_warning;
-    public int currentWave = 1;
+
+    public enum SpawnState { SPAWNING, WAITING, START, COUNTING};
+
+    [System.Serializable]
+    public class Wave
+    {
+        public string name;
+        public Transform[] enemy;
+        public int count;
+        public float rate;
+    }
+    public Wave[] waves;
+    int currentWave = 0;
+    public float timeBetweenWaves = 5f;
+    float waveCountDown;
+    SpawnState state = SpawnState.START;
 
 
     void Start()
@@ -40,14 +55,40 @@ public class Click : MonoBehaviour
         buildUI.gameObject.SetActive(false);
         //Mettre la collision de l'objet button_close pas actif au debut
         button_close.gameObject.GetComponent<Collider2D>().enabled = false;
+
+        waveCountDown = timeBetweenWaves;
     }
     void Update()
     {
+        Debug.Log(state);
         if (Input.GetMouseButtonDown(0)) // Si il y a un click activer CastRay 
         {
             CastRay();
         }
         
+        if (state == SpawnState.WAITING)
+        {
+            if (!EnemyIsAlive())
+            {
+                WaveCompleted();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        if (waveCountDown <= 0)
+        {
+            if (state != SpawnState.SPAWNING)
+            {
+                StartCoroutine(SpawnWave(waves[currentWave]));
+            }
+        }
+        else
+        {
+            waveCountDown -= Time.deltaTime;
+        }
     }
 
     void CastRay()
@@ -111,13 +152,7 @@ public class Click : MonoBehaviour
 
             if (hit.collider.gameObject.name == "wave_warning")
             {
-                if (currentWave == 1) 
-                {
-                    for (int i = 0; i < 20; i++) 
-                    {
-                        Invoke("SpawnEnnemis", 1f);
-                    }
-                }
+                state = SpawnState.COUNTING;
                 wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("WaveWarning", true);
                 Invoke("DeactivateWaveWarning", 1f);
                 Invoke("ActivateWaveWarning", 5f);
@@ -150,11 +185,51 @@ public class Click : MonoBehaviour
     {
         wave_warning.gameObject.GetComponent<Collider2D>().enabled = false;
     }
+    IEnumerator SpawnWave(Wave _wave)
+    {
+        Debug.Log("Spawn Wave:" + _wave.name);
+        state = SpawnState.SPAWNING;
 
+        for (int i = 0; i < _wave.count; i++)
+        {
+            SpawnEnnemis();
+            yield return new WaitForSeconds(1f / _wave.rate);
+        }
+
+        state = SpawnState.WAITING;
+        yield break;
+    }
     void SpawnEnnemis()
     {
         GameObject cloneEnnemisType1 = Instantiate(Ennemis_type_1, spawnpoint, Quaternion.identity);
         cloneEnnemisType1.SetActive(true);
+    }
+    void WaveCompleted()
+    {
+        Debug.Log("Wave Completed");
+        state = SpawnState.COUNTING;
+        waveCountDown = timeBetweenWaves;
+        if (currentWave == 15)
+        {
+            // Implemnt some sorta multiplier here to make it harder over time
+            Debug.Log("ALL WAVES COMPLETE! Looping...");
+        }
+        else
+        {
+            currentWave++;
+        }
+    }
+
+    bool EnemyIsAlive()
+    {
+        if (GameObject.FindGameObjectWithTag("ennemis") == null)
+        {
+            return false;
+        } 
+        else 
+        { 
+            return true; 
+        }
     }
 
 }
