@@ -3502,7 +3502,7 @@ MonoBehaviour:
     - {fileID: 323562344}
     count: 20
     rate: 2
-  timeBetweenWaves: 5
+  timeBetweenWaves: 10
 --- !u!1 &1611752225
 GameObject:
   m_ObjectHideFlags: 0

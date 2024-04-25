@@ -20,15 +20,12 @@ public class Click : MonoBehaviour
 
     public GameObject lastSignHit;
     public Vector2 lastSignHitPosition;
-
-    public static int ennemisCount = 20;
-
     public GameObject Ennemis_type_1;
 
     public Vector2 spawnpoint;
     public GameObject waypoint_1;
     public GameObject wave_warning;
-
+    public bool waveWarningStart = false; 
     public enum SpawnState { SPAWNING, WAITING, START, COUNTING};
 
     [System.Serializable]
@@ -41,7 +38,7 @@ public class Click : MonoBehaviour
     }
     public Wave[] waves;
     int currentWave = 0;
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 10f;
     float waveCountDown;
     SpawnState state = SpawnState.START;
 
@@ -60,7 +57,7 @@ public class Click : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
         if (Input.GetMouseButtonDown(0)) // Si il y a un click activer CastRay 
         {
             CastRay();
@@ -85,7 +82,7 @@ public class Click : MonoBehaviour
                 StartCoroutine(SpawnWave(waves[currentWave]));
             }
         }
-        else
+        else if(waveWarningStart == true)
         {
             waveCountDown -= Time.deltaTime;
         }
@@ -152,20 +149,13 @@ public class Click : MonoBehaviour
 
             if (hit.collider.gameObject.name == "wave_warning")
             {
-                state = SpawnState.COUNTING;
+                waveWarningStart = true;
+                waveCountDown = 0;
                 wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("WaveWarning", true);
                 Invoke("DeactivateWaveWarning", 1f);
-                Invoke("ActivateWaveWarning", 5f);
                 //position initial des ennemis
                 spawnpoint = new Vector2(waypoint_1.gameObject.transform.position.x, waypoint_1.gameObject.transform.position.y);
-                //Si on click wave_warning, ca creer un clone de ennemis
-                
-
-                print(ennemisCount);
-                if (ennemisCount == 0) 
-                { 
-                    Invoke("ActivateWaveWarning", 5f); 
-                }
+                //Si on click wave_warning, ca creer un clone de ennemis 
             }
         }
     }
@@ -189,7 +179,6 @@ public class Click : MonoBehaviour
     {
         Debug.Log("Spawn Wave:" + _wave.name);
         state = SpawnState.SPAWNING;
-
         for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnnemis();
@@ -207,6 +196,7 @@ public class Click : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Completed");
+        Invoke("ActivateWaveWarning", 5f);
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
         if (currentWave == 15)

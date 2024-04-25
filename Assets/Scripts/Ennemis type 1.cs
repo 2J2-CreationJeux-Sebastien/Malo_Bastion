@@ -25,8 +25,6 @@ public class Ennemistype1 : MonoBehaviour
 
             if (pointsIndex == Points1.Length) 
             {
-                Click.ennemisCount--;
-                print(Click.ennemisCount);
                 Destroy(gameObject);
             }
         }
