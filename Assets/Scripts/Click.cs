@@ -7,14 +7,14 @@ using UnityEngine;
 
 public class Click : MonoBehaviour
 {
+    public GameObject archerTowerIcon; // UI pour construire un batiment archer 
+    public GameObject pfarcherTower; // objet batiment archer 
+
+    public GameObject upgrade_circle; // UI pour ameliorer et vendre un batiment 
+    public GameObject upgrade_button; // UI boutton pour ameliorer
+    public GameObject sell_button; // UI boutton pour vendre
     public GameObject buildUI; // objet UI pour consttuire les structures
     public GameObject button_close; // ferme les UI quand il est clicker
-
-    public GameObject archerTowerIcon;
-    public GameObject pfarcherTower;
-    public GameObject upgrade_circle;
-    public GameObject upgrade_button;
-    public GameObject sell_button;
 
     public GameObject lastBuildingHit;
 

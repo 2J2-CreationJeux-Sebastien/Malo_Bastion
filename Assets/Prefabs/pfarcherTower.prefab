@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1269491392388734165}
   - component: {fileID: 4987351800422040577}
   - component: {fileID: 656053315253190936}
+  - component: {fileID: 2564255854932545746}
   m_Layer: 0
   m_Name: pfarcherTower
   m_TagString: archerTower
@@ -134,6 +135,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.71, y: 1.63}
   m_EdgeRadius: 0
+--- !u!114 &2564255854932545746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214789726710784190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba164deee2ac1764da4e9b3e311c168e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 6563338572708794915, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
 --- !u!1 &4412277245714689509
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,32 +1,32 @@
-﻿/* 
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey;
-using CodeMonkey.Utils;
+
 
 public class Tower : MonoBehaviour {
 
     private Vector3 projectileShootFromPosition;
-    private float range;
-    private int damageAmount;
-    private float shootTimerMax;
-    private float shootTimer;
+    public GameObject arrow;
+    // private float range;
+    // private int damageAmount;
+    // private float shootTimerMax;
+    // private float shootTimer;
 
     private void Awake() {
-        projectileShootFromPosition = transform.Find("ProjectileShootFromPosition").position;
-        range = 60f;
-        damageAmount = 25;
-        shootTimerMax = .4f;
+        projectileShootFromPosition = new Vector2((gameObject.transform.position.x), (gameObject.transform.position.y+1));
+        //range = 60f;
+        //damageAmount = 25;
+        //shootTimerMax = .4f;
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            //CMDebug.TextPopupMouse("Click!");
-            //ProjectileArrow.Create(projectileShootFromPosition, UtilsClass.GetMouseWorldPosition());
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            print("hello")
+;            GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
+            cloneArrow.SetActive(true);
         }
-
+        /*
         shootTimer -= Time.deltaTime;
 
         if (shootTimer <= 0f) {
@@ -38,8 +38,9 @@ public class Tower : MonoBehaviour {
                 ProjectileArrow.Create(projectileShootFromPosition, enemy, Random.Range(damageAmount - 5, damageAmount + 5));
             }
         }
+        */
     }
-
+    /*
     private Enemy GetClosestEnemy() {
         return Enemy.GetClosestEnemy(transform.position, range);
     }
@@ -59,6 +60,5 @@ public class Tower : MonoBehaviour {
     private void OnMouseEnter() {
         UpgradeOverlay.Show_Static(this);
     }
-
+    */
 }
-*/
