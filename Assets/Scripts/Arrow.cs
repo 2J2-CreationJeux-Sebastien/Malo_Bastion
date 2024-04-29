@@ -9,11 +9,13 @@ public class Arrow : MonoBehaviour
 
     public float speedArrow;
 
-    private Vector2 archerTowerPosition;
-    private Vector2 ennemisPosition;
+    private float archerTowerPositionX;
+    private float ennemisPositionX;
 
-    private Vector2 distanceDiff; 
-    private Vector2 nextPosition; 
+    private float distanceDiff; 
+    private float nextPositionX;
+    private float projectileShootFromPosition;
+    private float heightPath;
 
 
     // Start is called before the first frame update
@@ -22,15 +24,16 @@ public class Arrow : MonoBehaviour
         archerTower = GameObject.FindGameObjectWithTag("archerTower");
         ennemis = GameObject.FindGameObjectWithTag("ennemis");
 
-        archerTowerPosition = new Vector2(archerTower.transform.position.x, archerTower.transform.position.y);
+        archerTowerPositionX = archerTower.transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ennemisPosition = new Vector2(ennemis.transform.position.x, ennemis.transform.position.y);
+        ennemisPositionX = ennemis.transform.position.x;
 
-        distanceDiff = ennemisPosition - archerTowerPosition;
-        nextPosition = Vector2.MoveTowards(transform.position, ennemisPosition, speedArrow*Time.deltaTime);
+        distanceDiff = ennemisPositionX - archerTowerPositionX;
+        nextPositionX = Mathf.MoveTowards(transform.position.x, ennemisPositionX, speedArrow*Time.deltaTime);
+        projectileShootFromPosition = Mathf.Lerp(archerTower.transform.position.y, ennemis.transform.position.y, (nextPositionX - archerTowerPositionX)/distanceDiff);
     }
 }
