@@ -101,4 +101,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   archerTower: {fileID: 0}
   ennemis: {fileID: 0}
-  speedArrow: 10
+  speedArrow: 2

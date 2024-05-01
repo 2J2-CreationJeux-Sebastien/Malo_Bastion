@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    public AnimationCurve curve;
     public GameObject archerTower;
     public GameObject ennemis;
 
@@ -35,5 +36,19 @@ public class Arrow : MonoBehaviour
         distanceDiff = ennemisPositionX - archerTowerPositionX;
         nextPositionX = Mathf.MoveTowards(transform.position.x, ennemisPositionX, speedArrow*Time.deltaTime);
         projectileShootFromPosition = Mathf.Lerp(archerTower.transform.position.y, ennemis.transform.position.y, (nextPositionX - archerTowerPositionX)/distanceDiff);
+        heightPath = 2 * -(nextPositionX - archerTowerPositionX) * (nextPositionX - archerTowerPositionX) / (0.25f * distanceDiff * distanceDiff);
+
+        Vector3 movePosition = new Vector3(nextPositionX, projectileShootFromPosition + heightPath, transform.position.z);
+        transform.rotation = LookAtTarget(movePosition - transform.position);
+        transform.position = movePosition;
+
+        if(transform.position == ennemis.transform.position){
+            Destroy(gameObject);
+        }
+    }
+
+    public static Quaternion LookAtTarget(Vector2 rotation)
+    {
+        return Quaternion.Euler(0,0, Mathf.Atan2(rotation.y, rotation.x)* Mathf.Rad2Deg);
     }
 }
