@@ -2902,6 +2902,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27827948523563791, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+      propertyPath: speedArrow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 884869793714052395, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
       propertyPath: speedArrow
       value: 2
@@ -4788,7 +4792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2118938111938581083, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2118938111938581083, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
       propertyPath: m_TagString
