@@ -32,6 +32,7 @@ public class Arrow : MonoBehaviour
     void Update()
     {
         ennemisPositionX = ennemis.transform.position.x;
+        print(ennemis.transform.position.x);
 
         distanceDiff = ennemisPositionX - archerTowerPositionX;
         nextPositionX = Mathf.MoveTowards(transform.position.x, ennemisPositionX, speedArrow*Time.deltaTime);
