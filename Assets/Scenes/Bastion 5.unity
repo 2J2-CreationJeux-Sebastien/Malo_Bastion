@@ -3207,6 +3207,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6221077353296096236, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6908539963532572025, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3710,6 +3714,7 @@ MonoBehaviour:
   lastBuildingHit: {fileID: 638749064}
   lastSignHit: {fileID: 0}
   lastSignHitPosition: {x: 0, y: 0}
+  magicTowerPosition: {x: 0, y: 0}
   Ennemis_type_1: {fileID: 323562337}
   spawnpoint: {x: 0, y: 0}
   waypoint_1: {fileID: 771804218}
