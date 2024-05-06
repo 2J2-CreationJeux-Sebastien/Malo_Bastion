@@ -7,22 +7,32 @@ using UnityEngine;
 
 public class Click : MonoBehaviour
 {
+    // Batiment Archer
     public GameObject archerTowerIcon; // UI pour construire un batiment archer 
     public GameObject pfarcherTower; // objet batiment archer 
 
+    //Batiment Magic
+    public GameObject magicTowerIcon;
+    public GameObject pfmagicTower;
+
+    
+    // UI pour batiments 
     public GameObject upgrade_circle; // UI pour ameliorer et vendre un batiment 
     public GameObject upgrade_button; // UI boutton pour ameliorer
     public GameObject sell_button; // UI boutton pour vendre
     public GameObject buildUI; // objet UI pour consttuire les structures
     public GameObject button_close; // ferme les UI quand il est clicker
 
-    public GameObject lastBuildingHit;
+    // Variables utiles 
+    public GameObject lastBuildingHit; // Dernier Batiment cliqué
+    public GameObject lastSignHit; // Derniere affiche cliqué
+    public Vector2 lastSignHitPosition; // Derniere position d'affiche cliqué
 
-    public GameObject lastSignHit;
-    public Vector2 lastSignHitPosition;
+    public Vector2 magicTowerPosition;
+
+    // Systeme ennemis
     public GameObject Ennemis_type_1;
-
-    public Vector2 spawnpoint;
+    public Vector2 spawnpoint; // Point de depart des ennemis
     public GameObject waypoint_1;
     public GameObject wave_warning;
     public bool waveWarningStart = false; 
@@ -102,7 +112,10 @@ public class Click : MonoBehaviour
                 lastSignHit = hit.collider.gameObject;
                 //Enregistre la position de la derniere affiche clicker
                 lastSignHitPosition = new Vector2(hit.collider.gameObject.transform.position.x, hit.collider.gameObject.transform.position.y);
+                magicTowerPosition = new Vector2(hit.collider.gameObject.transform.position.x+0.07f, hit.collider.gameObject.transform.position.y+0.07f);
                 archerTowerIcon.gameObject.SetActive(true);
+                magicTowerIcon.gameObject.SetActive(true);
+
                 //Quand on click sur une affiche buildUI devient actif
                 buildUI.gameObject.SetActive(true);
                 //Donne l'option de clicker sur le fond pour ne pas construire et enlever buildUI
@@ -117,6 +130,26 @@ public class Click : MonoBehaviour
                 lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 sell_button.GetComponent<Collider2D>().enabled = true;
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
+            }
+
+            if (hit.collider.gameObject.name == "magicTowerIcon")
+            {
+                buildUI.gameObject.SetActive(false);
+                magicTowerIcon.gameObject.SetActive(false);
+                button_close.gameObject.GetComponent<Collider2D>().enabled = false;
+                lastSignHit.gameObject.GetComponent<Collider2D>().enabled = false;
+                Instantiate(pfmagicTower, magicTowerPosition, Quaternion.identity, lastSignHit.transform);
+                GameObject.Find("pfmagicTower(Clone)").gameObject.SetActive(true);
+                GameObject.Find("pfmagicTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            }
+
+            if (hit.collider.gameObject.tag == "magicTower")
+            {
+                buildUI.gameObject.SetActive(false);
+                lastBuildingHit = hit.collider.gameObject;
+                hit.collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                sell_button.GetComponent<Collider2D>().enabled = true;
+                GameObject.Find("button_close").gameObject.GetComponent<Collider2D>().enabled = true;
             }
 
             if (hit.collider.gameObject.name == "archerTowerIcon")
@@ -140,7 +173,12 @@ public class Click : MonoBehaviour
 
             if (hit.collider.gameObject.name == "sell_button")
             {
-                GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                if(lastBuildingHit.gameObject.tag == "archerTower"){
+                    GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                }
+                if(lastBuildingHit.gameObject.tag == "magicTower"){
+                    GameObject.Find("pfmagicTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                }
                 lastBuildingHit.transform.parent.gameObject.SetActive(true);
                 lastBuildingHit.transform.parent.gameObject.GetComponent<Collider2D>().enabled = true;
                 lastBuildingHit.transform.gameObject.SetActive(false);
