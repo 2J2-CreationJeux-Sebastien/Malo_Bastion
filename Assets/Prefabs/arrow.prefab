@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4894000724828721815}
   - component: {fileID: 4270884053792918378}
-  - component: {fileID: 946530060327621312}
+  - component: {fileID: 6916560773934497413}
   m_Layer: 0
   m_Name: arrow
   m_TagString: Untagged
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &946530060327621312
+--- !u!114 &6916560773934497413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,15 +96,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6563338572708794915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5611dc03949a4fb409bee7fb420ab467, type: 3}
+  m_Script: {fileID: 11500000, guid: e673c397859b3a042a08515a4d1e64dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   archerTower: {fileID: 0}
   ennemis: {fileID: 0}
-  speedArrow: 1
+  moveSpeed: 1

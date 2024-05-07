@@ -1,10 +1,10 @@
-﻿
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Tower : MonoBehaviour {
+public class MagicTower : MonoBehaviour {
 
     private Vector3 projectileShootFromPosition;
     public GameObject arrow;
@@ -14,7 +14,7 @@ public class Tower : MonoBehaviour {
     // private float shootTimer;
 
     private void Awake() {
-        projectileShootFromPosition = new Vector2((gameObject.transform.position.x), (gameObject.transform.position.y+1));
+        projectileShootFromPosition = new Vector2((gameObject.transform.GetChild(1).transform.position.x), (gameObject.transform.GetChild(1).transform.position.y));
         //range = 60f;
         //damageAmount = 25;
         //shootTimerMax = .4f;
@@ -22,9 +22,10 @@ public class Tower : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            print("hello")
-;            GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
+            //gameObject.transform.GetChild(1).gameObject.GetComponent<Animation>().SetTrigger("Attack");
+            GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
             cloneArrow.SetActive(true);
+
         }
         /*
         shootTimer -= Time.deltaTime;
