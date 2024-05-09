@@ -22,7 +22,7 @@ public class MagicTower : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            //gameObject.transform.GetChild(1).gameObject.GetComponent<Animation>().SetTrigger("Attack");
+            gameObject.transform.GetChild(1).gameObject.GetComponent<Animator>().SetTrigger("Attack");
             GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
             cloneArrow.SetActive(true);
 
