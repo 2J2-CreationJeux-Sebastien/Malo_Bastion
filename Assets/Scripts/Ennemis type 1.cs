@@ -13,7 +13,7 @@ public class Ennemistype1 : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private int pointsIndex;
     private float randomNumber;
-    private int healthEnemytype1 = 50;
+    public static int healthEnemytype1 = 50;
 
     void Start()
     {
@@ -51,15 +51,6 @@ public class Ennemistype1 : MonoBehaviour
         if (healthEnemytype1 <= 0)
         {
             Destroy(gameObject);
-        }
-    }
-    void OnCollisionEnter2D(Collision2D infoCollision)
-    {
-        print("h");
-        if (infoCollision.gameObject.tag == "arrow")
-        {
-            healthEnemytype1 -= 10;
-            print("h");
         }
     }
 }

@@ -43,13 +43,21 @@ public class Arrow : MonoBehaviour
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
 
-        if(transform.position == ennemis.transform.position){
+        /*if(transform.position == ennemis.transform.position){
             Destroy(gameObject);
-        }
+        }*/
     }
 
     public static Quaternion LookAtTarget(Vector2 rotation)
     {
         return Quaternion.Euler(0,0, Mathf.Atan2(rotation.y, rotation.x)* Mathf.Rad2Deg);
+    }
+    void OnCollisionEnter2D(Collision2D infoCollision)
+    {
+        print("h");
+        if (infoCollision.gameObject.tag == "Ennemis_type_1(Clone)")
+        {
+            print("y");
+        }
     }
 }

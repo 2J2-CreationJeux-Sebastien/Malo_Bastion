@@ -8,7 +8,6 @@ public class ProjectileArrow : MonoBehaviour {
     public GameObject ennemis;
     public float moveSpeed = 1f;
 
-
     void Start()
     {
         archerTower = GameObject.FindGameObjectWithTag("archerTower");
@@ -26,6 +25,7 @@ public class ProjectileArrow : MonoBehaviour {
 
         if(transform.position == ennemis.transform.position){
             Destroy(gameObject);
+            Ennemistype1.healthEnemytype1 -= 10;
         }
     }
 
