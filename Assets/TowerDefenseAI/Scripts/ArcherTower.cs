@@ -22,7 +22,6 @@ public class ArcherTower : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            print("hello")
 ;           GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
             cloneArrow.SetActive(true);
         }

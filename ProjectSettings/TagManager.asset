@@ -8,6 +8,7 @@ TagManager:
   - ennemisType1
   - ennemis
   - magicTower
+  - arrow
   layers:
   - Default
   - TransparentFX

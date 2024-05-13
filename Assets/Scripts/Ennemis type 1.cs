@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ennemistype1 : MonoBehaviour
 {
@@ -11,12 +13,12 @@ public class Ennemistype1 : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private int pointsIndex;
     private float randomNumber;
-    
+    private int healthEnemytype1 = 50;
+
     void Start()
     {
         transform.position = Points1[pointsIndex].transform.position;
         randomNumber = Random.Range(1, 4);
-        print(randomNumber);
         if(randomNumber == 1)
         {
             Points = Points1;
@@ -42,8 +44,24 @@ public class Ennemistype1 : MonoBehaviour
 
             if (pointsIndex == Points.Length) 
             {
+
                 Destroy(gameObject);
             }
         }
+        if (healthEnemytype1 <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D infoCollision)
+    {
+        print("h");
+        if (infoCollision.gameObject.tag == "arrow")
+        {
+            healthEnemytype1 -= 10;
+            print("h");
+        }
     }
 }
+
+    
