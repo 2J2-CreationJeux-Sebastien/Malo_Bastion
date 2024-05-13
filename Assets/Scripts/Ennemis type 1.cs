@@ -13,7 +13,7 @@ public class Ennemistype1 : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private int pointsIndex;
     private float randomNumber;
-    public static int healthEnemytype1 = 50;
+    [SerializeField] private int healthEnemytype1 = 50;
 
     void Start()
     {
@@ -51,6 +51,9 @@ public class Ennemistype1 : MonoBehaviour
         if (healthEnemytype1 <= 0)
         {
             Destroy(gameObject);
+        }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+;           healthEnemytype1 -= 10;
         }
     }
 }

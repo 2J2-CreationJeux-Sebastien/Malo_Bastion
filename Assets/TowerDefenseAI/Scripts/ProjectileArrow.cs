@@ -25,7 +25,6 @@ public class ProjectileArrow : MonoBehaviour {
 
         if(transform.position == ennemis.transform.position){
             Destroy(gameObject);
-            Ennemistype1.healthEnemytype1 -= 10;
         }
     }
 

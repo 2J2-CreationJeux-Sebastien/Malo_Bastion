@@ -106,6 +106,7 @@ public class Click : MonoBehaviour
         if (hit.collider != null)
         {
             Debug.Log(hit.collider.gameObject.name);
+            Debug.Log(hit.collider);
             if (hit.collider.gameObject.name == "build sign")
             {
                 //Enregistre la derniere affiche clicker
@@ -162,8 +163,11 @@ public class Click : MonoBehaviour
                 GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
 
-            if (hit.collider.gameObject.tag == "archerTower")
+            if ((hit.collider.gameObject.tag == "archerTower"))
+            // if ((hit.collider.gameObject.tag == "archerTower")&&(hit.collider is BoxCollider))
             {
+                print(pfarcherTower.GetComponent<BoxCollider2D>().isTrigger);
+                print(pfarcherTower.GetComponent<CircleCollider2D>().isTrigger);
                 buildUI.gameObject.SetActive(false);
                 lastBuildingHit = hit.collider.gameObject;
                 hit.collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);

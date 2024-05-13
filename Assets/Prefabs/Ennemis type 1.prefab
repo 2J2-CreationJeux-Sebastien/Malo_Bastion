@@ -106,6 +106,7 @@ MonoBehaviour:
   Points2: []
   Points3: []
   moveSpeed: 0.5
+  healthEnemytype1: 50
 --- !u!61 &7564803064023332386
 BoxCollider2D:
   m_ObjectHideFlags: 0
