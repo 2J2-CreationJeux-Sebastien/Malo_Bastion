@@ -144,7 +144,7 @@ public class Click : MonoBehaviour
                 GameObject.Find("pfmagicTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
 
-            if (hit.collider.gameObject.tag == "magicTower")
+            if ((hit.collider.gameObject.tag == "magicTower")&&(hit.collider.GetType() == typeof(BoxCollider2D)))
             {
                 buildUI.gameObject.SetActive(false);
                 lastBuildingHit = hit.collider.gameObject;
@@ -163,11 +163,9 @@ public class Click : MonoBehaviour
                 GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
 
-            if ((hit.collider.gameObject.tag == "archerTower"))
-            // if ((hit.collider.gameObject.tag == "archerTower")&&(hit.collider is BoxCollider))
+            //if ((hit.collider.gameObject.tag == "archerTower"))
+            if ((hit.collider.gameObject.tag == "archerTower")&&(hit.collider.GetType() == typeof(BoxCollider2D)))
             {
-                print(pfarcherTower.GetComponent<BoxCollider2D>().isTrigger);
-                print(pfarcherTower.GetComponent<CircleCollider2D>().isTrigger);
                 buildUI.gameObject.SetActive(false);
                 lastBuildingHit = hit.collider.gameObject;
                 hit.collider.gameObject.transform.GetChild(0).gameObject.SetActive(true);

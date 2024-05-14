@@ -7,7 +7,7 @@ using UnityEngine;
 public class MagicTower : MonoBehaviour {
 
     private Vector3 projectileShootFromPosition;
-    public GameObject arrow;
+    public GameObject magicProjectile;
     // private float range;
     // private int damageAmount;
     // private float shootTimerMax;
@@ -23,8 +23,8 @@ public class MagicTower : MonoBehaviour {
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             gameObject.transform.GetChild(1).gameObject.GetComponent<Animator>().SetTrigger("Attack");
-            GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
-            cloneArrow.SetActive(true);
+            GameObject cloneMagicProjectile = Instantiate(magicProjectile, projectileShootFromPosition, Quaternion.identity);
+            cloneMagicProjectile.SetActive(true);
 
         }
         /*
