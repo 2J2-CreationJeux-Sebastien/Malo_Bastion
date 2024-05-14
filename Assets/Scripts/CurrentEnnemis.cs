@@ -14,10 +14,16 @@ public class CurrentEnnemis : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    private void OnTriggerEnter2D(Collider2D infoCollision)
+    void OnTriggerEnter2D(Collider2D infoCollision)
     {
-        
+        print("hello");
+        currentEnnemis.Add(infoCollision.gameObject);
+    }
+    void OnTriggerExit2D(Collider2D infoCollision)
+    {
+        print("bye");
+        currentEnnemis.Remove(currentEnnemis[0]);
     }
 }

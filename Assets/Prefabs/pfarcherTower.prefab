@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2882289139374378852}
-  - component: {fileID: 6986727785365350782}
   - component: {fileID: 1086900467796396918}
+  - component: {fileID: 7131432291773436809}
   m_Layer: 2
   m_Name: CircleCollider
   m_TagString: Untagged
@@ -33,42 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1269491392388734165}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &6986727785365350782
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765049611991091512}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!58 &1086900467796396918
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -105,6 +69,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 3.8
+--- !u!114 &7131432291773436809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765049611991091512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f861c09ecfc8e458257ffbb25bc826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnnemis: []
 --- !u!1 &3214789726710784190
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,13 +719,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6916560773934497413, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
+    - {fileID: 5383728265629672970, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6563338572708794915, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5605940693873620083}
+      addedObject: {fileID: 8213853759017534657}
   m_SourcePrefab: {fileID: 100100000, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
 --- !u!4 &5668597028598721368 stripped
 Transform:
@@ -760,7 +739,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6563338572708794915, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
   m_PrefabInstance: {fileID: 954795333351487951}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5605940693873620083
+--- !u!114 &8213853759017534657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -769,7 +748,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6221077353296096236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e673c397859b3a042a08515a4d1e64dc, type: 3}
+  m_Script: {fileID: 11500000, guid: f59809ce930748247ab2bb0571e5f6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   archerTower: {fileID: 0}
