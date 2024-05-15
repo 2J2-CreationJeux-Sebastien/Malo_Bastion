@@ -52,9 +52,6 @@ public class Ennemistype1 : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (Input.GetKeyDown(KeyCode.Space)) {
-;           healthEnemytype1 -= 10;
-        }
     }
 }
 

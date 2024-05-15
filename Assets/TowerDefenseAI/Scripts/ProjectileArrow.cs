@@ -11,21 +11,27 @@ public class ProjectileArrow : MonoBehaviour {
     void Start()
     {
         archerTower = GameObject.FindGameObjectWithTag("archerTower");
-        ennemis = GameObject.FindGameObjectWithTag("ennemis");
-        
     }
 
     private void Update() {
-        if(ennemis != null)
+       
+        if (CurrentEnnemis.currentEnnemis.Count > 0) 
+        {
+            ennemis = CurrentEnnemis.currentEnnemis[0];
+        }
+        
+        if (ennemis != null)
         {
             MoveProjectile();
             transform.rotation = RotateProjectile(ennemis.transform.position - transform.position);
             
+            if (transform.position == ennemis.transform.position)
+            {
+                Destroy(gameObject);
+            }
         }
 
-        if(transform.position == ennemis.transform.position){
-            Destroy(gameObject);
-        }
+        
     }
 
     private void MoveProjectile()

@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class CurrentEnnemis : MonoBehaviour
 {
-    public List<GameObject> currentEnnemis = new List<GameObject>();
-    // Start is called before the first frame update
+    public static List<GameObject> currentEnnemis = new List<GameObject>();
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -20,6 +19,7 @@ public class CurrentEnnemis : MonoBehaviour
     {
         print("hello");
         currentEnnemis.Add(infoCollision.gameObject);
+        print(currentEnnemis[0]);
     }
     void OnTriggerExit2D(Collider2D infoCollision)
     {

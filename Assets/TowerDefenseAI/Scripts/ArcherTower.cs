@@ -15,8 +15,11 @@ public class ArcherTower : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
-            cloneArrow.SetActive(true);
+            if (CurrentEnnemis.currentEnnemis.Count > 0) 
+            {
+                GameObject cloneArrow = Instantiate(arrow, projectileShootFromPosition, Quaternion.identity);
+                cloneArrow.SetActive(true);
+            }
         }
     }
 }
