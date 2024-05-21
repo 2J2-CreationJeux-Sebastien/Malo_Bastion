@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 6221077353296096236}
+  circleCollider: {fileID: 1765049611991091512}
 --- !u!1 &3233408303381598280
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +672,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1269491392388734165}
     m_Modifications:
+    - target: {fileID: 4642153409674958816, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
+      propertyPath: circleollider
+      value: 
+      objectReference: {fileID: 1765049611991091512}
+    - target: {fileID: 4642153409674958816, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
+      propertyPath: circleCollider
+      value: 
+      objectReference: {fileID: 1765049611991091512}
     - target: {fileID: 4894000724828721815, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -720,14 +729,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6916560773934497413, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
-    - {fileID: 5383728265629672970, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6563338572708794915, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8213853759017534657}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
 --- !u!4 &5668597028598721368 stripped
 Transform:
@@ -739,18 +744,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6563338572708794915, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
   m_PrefabInstance: {fileID: 954795333351487951}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8213853759017534657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6221077353296096236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59809ce930748247ab2bb0571e5f6e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  archerTower: {fileID: 0}
-  ennemis: {fileID: 0}
-  moveSpeed: 1

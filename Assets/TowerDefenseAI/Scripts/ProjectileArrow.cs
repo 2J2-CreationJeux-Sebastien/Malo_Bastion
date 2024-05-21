@@ -7,6 +7,7 @@ public class ProjectileArrow : MonoBehaviour {
     public GameObject archerTower;
     public GameObject ennemis;
     public float moveSpeed = 1f;
+    public GameObject circleCollider;
 
     void Start()
     {
@@ -15,29 +16,21 @@ public class ProjectileArrow : MonoBehaviour {
 
     private void Update() {
        
-        if (CurrentEnnemis.currentEnnemis.Count > 0) 
+        if (circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0) 
         {
-            ennemis = CurrentEnnemis.currentEnnemis[0];
+            ennemis = circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis[0];
         }
         
         if (ennemis != null)
         {
             MoveProjectile();
             transform.rotation = RotateProjectile(ennemis.transform.position - transform.position);
-            
-            if (transform.position == ennemis.transform.position)
-            {
-                Destroy(gameObject);
-            }
         }
-
-        
     }
 
     private void MoveProjectile()
     {
         transform.position = Vector2.MoveTowards(transform.position, ennemis.transform.position, moveSpeed * Time.deltaTime);
-
     }
 
     public static Quaternion RotateProjectile(Vector2 rotation)

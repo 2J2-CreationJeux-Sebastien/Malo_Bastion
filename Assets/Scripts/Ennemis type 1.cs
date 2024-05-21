@@ -54,10 +54,15 @@ public class Ennemistype1 : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D infoCollision)
     {
-        print("hit");
         if (infoCollision.gameObject.name == "arrow(Clone)")
         {
-           healthEnemytype1 -= 10; 
+           healthEnemytype1 -= 10;
+           Destroy(infoCollision.gameObject); 
+        }
+        if (infoCollision.gameObject.name == "magic projectile(Clone)")
+        {
+           healthEnemytype1 -= 20;
+           Destroy(infoCollision.gameObject);  
         }
     }
 }
