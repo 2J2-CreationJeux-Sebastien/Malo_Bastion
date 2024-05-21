@@ -13,7 +13,7 @@ public class Ennemistype1 : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private int pointsIndex;
     private float randomNumber;
-    [SerializeField] private int healthEnemytype1 = 50;
+    [SerializeField] public int healthEnemytype1 = 50;
 
     void Start()
     {
@@ -50,19 +50,6 @@ public class Ennemistype1 : MonoBehaviour
         if (healthEnemytype1 <= 0)
         {
             Destroy(gameObject);
-        }
-    }
-    void OnCollisionEnter2D(Collision2D infoCollision)
-    {
-        if (infoCollision.gameObject.name == "arrow(Clone)")
-        {
-           healthEnemytype1 -= 10;
-           Destroy(infoCollision.gameObject); 
-        }
-        if (infoCollision.gameObject.name == "magic projectile(Clone)")
-        {
-           healthEnemytype1 -= 20;
-           Destroy(infoCollision.gameObject);  
         }
     }
 }

@@ -25,6 +25,23 @@ public class ProjectileArrow : MonoBehaviour {
         {
             MoveProjectile();
             transform.rotation = RotateProjectile(ennemis.transform.position - transform.position);
+            
+            if (transform.position == ennemis.transform.position)
+            {
+                Destroy(gameObject);
+                if (gameObject.name == "arrow(Clone)")
+                {
+                    ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
+                }
+                if (gameObject.name == "magic_projectile(Clone)")
+                {
+                    ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
+                }
+            }
+        } 
+        else 
+        {
+            Destroy(gameObject);
         }
     }
 
