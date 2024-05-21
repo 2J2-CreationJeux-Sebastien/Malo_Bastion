@@ -44,13 +44,20 @@ public class Ennemistype1 : MonoBehaviour
 
             if (pointsIndex == Points.Length) 
             {
-
                 Destroy(gameObject);
             }
         }
         if (healthEnemytype1 <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D infoCollision)
+    {
+        print("hit");
+        if (infoCollision.gameObject.name == "arrow(Clone)")
+        {
+           healthEnemytype1 -= 10; 
         }
     }
 }
