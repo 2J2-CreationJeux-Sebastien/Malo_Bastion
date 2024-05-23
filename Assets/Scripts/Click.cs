@@ -8,6 +8,7 @@ using UnityEngine;
 public class Click : MonoBehaviour
 {
     public static int gold;
+    public static int lives = 20;
     // Batiment Archer
     public GameObject archerTowerIcon; // UI pour construire un batiment archer 
     public GameObject pfarcherTower; // objet batiment archer 

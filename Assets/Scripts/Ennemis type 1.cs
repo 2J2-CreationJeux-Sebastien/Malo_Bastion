@@ -45,6 +45,7 @@ public class Ennemistype1 : MonoBehaviour
             if (pointsIndex == Points.Length) 
             {
                 Destroy(gameObject);
+                Click.lives -= 1;
             }
         }
         if (healthEnemytype1 <= 0)
