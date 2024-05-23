@@ -481,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magicProjectile: {fileID: 6579156505373684859}
   circleCollider: {fileID: 7955450379008058644}
+  canShoot: 1
 --- !u!1 &7726042889831853020
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   archerTower: {fileID: 0}
+  magicTower: {fileID: 6811263922251611996}
   ennemis: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 3
   circleCollider: {fileID: 7955450379008058644}

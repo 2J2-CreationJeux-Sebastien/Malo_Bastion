@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Click : MonoBehaviour
 {
+    public static int gold;
     // Batiment Archer
     public GameObject archerTowerIcon; // UI pour construire un batiment archer 
     public GameObject pfarcherTower; // objet batiment archer 
@@ -66,8 +67,6 @@ public class Click : MonoBehaviour
     }
     void Update()
     {
-        print(waveCountDown);
-
         //Debug.Log(state);
         if (Input.GetMouseButtonDown(0)) // Si il y a un click activer CastRay 
         {

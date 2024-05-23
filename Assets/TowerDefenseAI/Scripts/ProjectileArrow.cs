@@ -34,24 +34,33 @@ public class ProjectileArrow : MonoBehaviour {
                     ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 10;
 
                 }
-                if (gameObject.name == "magic_projectile(Clone)")
+                if (gameObject.name == "magic projectile(Clone)")
                 {
                     ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
                 }
+
+
                 if (archerTower != null) 
                 {
                     archerTower.GetComponent<ArcherTower>().canShoot = true;
                 }
                 if (magicTower != null)
                 {
-                    magicTower.GetComponent<ArcherTower>().canShoot = true;
+                    magicTower.GetComponent<MagicTower>().canShoot = true;
                 }
                 Destroy(gameObject);
             }
         }
         else 
         {
-            archerTower.GetComponent<ArcherTower>().canShoot = true;
+            if (archerTower != null)
+            {
+                archerTower.GetComponent<ArcherTower>().canShoot = true;
+            }
+            if (magicTower != null)
+            {
+                magicTower.GetComponent<MagicTower>().canShoot = true;
+            }
             Destroy(gameObject);
         }
     }

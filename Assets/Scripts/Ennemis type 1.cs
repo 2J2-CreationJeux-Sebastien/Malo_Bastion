@@ -50,6 +50,7 @@ public class Ennemistype1 : MonoBehaviour
         if (healthEnemytype1 <= 0)
         {
             Destroy(gameObject);
+            Click.gold += 10;
         }
     }
 }
