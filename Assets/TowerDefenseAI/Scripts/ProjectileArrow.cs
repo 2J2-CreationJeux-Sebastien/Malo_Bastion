@@ -8,17 +8,21 @@ public class ProjectileArrow : MonoBehaviour {
     public GameObject ennemis;
     public float moveSpeed = 1f;
     public GameObject circleCollider;
+ 
+
 
     void Start()
     {
-        archerTower = GameObject.FindGameObjectWithTag("archerTower");
-    }
-
-    private void Update() {
-       
-        if (circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0) 
+        if (circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0);
         {
             ennemis = circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis[0];
+        }
+    }
+
+    public void Update() {
+        if (circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0);
+        {
+            
         }
         
         if (ennemis != null)
@@ -28,19 +32,22 @@ public class ProjectileArrow : MonoBehaviour {
             
             if (transform.position == ennemis.transform.position)
             {
-                Destroy(gameObject);
                 if (gameObject.name == "arrow(Clone)")
                 {
-                    ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
+                    ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 10;
+
                 }
                 if (gameObject.name == "magic_projectile(Clone)")
                 {
                     ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
                 }
+                archerTower.GetComponent<ArcherTower>().canShoot = true;
+                Destroy(gameObject);
             }
-        } 
+        }
         else 
         {
+            archerTower.GetComponent<ArcherTower>().canShoot = true;
             Destroy(gameObject);
         }
     }
@@ -54,5 +61,4 @@ public class ProjectileArrow : MonoBehaviour {
     {
         return Quaternion.Euler(0,0, Mathf.Atan2(rotation.y, rotation.x)* Mathf.Rad2Deg);
     }
-    
 }

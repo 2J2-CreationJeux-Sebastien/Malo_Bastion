@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 6221077353296096236}
   circleCollider: {fileID: 1765049611991091512}
+  canShoot: 1
 --- !u!1 &3233408303381598280
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,6 +673,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1269491392388734165}
     m_Modifications:
+    - target: {fileID: 4642153409674958816, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642153409674958816, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
+      propertyPath: archerTower
+      value: 
+      objectReference: {fileID: 3214789726710784190}
     - target: {fileID: 4642153409674958816, guid: f92b0cc4273de8245b85d7b43ed7307e, type: 3}
       propertyPath: circleollider
       value: 

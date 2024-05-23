@@ -18,7 +18,6 @@ public class CurrentEnnemis : MonoBehaviour
     void OnTriggerEnter2D(Collider2D infoCollision)
     {
         currentEnnemis.Add(infoCollision.gameObject);
-        print(currentEnnemis[0]);
     }
     void OnTriggerExit2D(Collider2D infoCollision)
     {
