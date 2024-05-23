@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ProjectileArrow : MonoBehaviour {
     public GameObject archerTower;
+    public GameObject magicTower;
     public GameObject ennemis;
     public float moveSpeed = 1f;
     public GameObject circleCollider;
@@ -20,10 +21,6 @@ public class ProjectileArrow : MonoBehaviour {
     }
 
     public void Update() {
-        if (circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0);
-        {
-            
-        }
         
         if (ennemis != null)
         {
@@ -41,7 +38,14 @@ public class ProjectileArrow : MonoBehaviour {
                 {
                     ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
                 }
-                archerTower.GetComponent<ArcherTower>().canShoot = true;
+                if (archerTower != null) 
+                {
+                    archerTower.GetComponent<ArcherTower>().canShoot = true;
+                }
+                if (magicTower != null)
+                {
+                    magicTower.GetComponent<ArcherTower>().canShoot = true;
+                }
                 Destroy(gameObject);
             }
         }

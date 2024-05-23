@@ -48,7 +48,7 @@ public class Click : MonoBehaviour
     }
     public Wave[] waves;
     int currentWave = 0;
-    public float timeBetweenWaves = 10f;
+    public int timeBetweenWaves = 30;
     float waveCountDown;
     SpawnState state = SpawnState.START;
 
@@ -62,11 +62,12 @@ public class Click : MonoBehaviour
         buildUI.gameObject.SetActive(false);
         //Mettre la collision de l'objet button_close pas actif au debut
         button_close.gameObject.GetComponent<Collider2D>().enabled = false;
-
         waveCountDown = timeBetweenWaves;
     }
     void Update()
     {
+        print(waveCountDown);
+
         //Debug.Log(state);
         if (Input.GetMouseButtonDown(0)) // Si il y a un click activer CastRay 
         {
@@ -87,6 +88,8 @@ public class Click : MonoBehaviour
 
         if (waveCountDown <= 0)
         {
+            wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("WaveWarning", true);
+            Invoke("DeactivateWaveWarning", 1f);
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[currentWave]));
@@ -241,8 +244,7 @@ public class Click : MonoBehaviour
         waveCountDown = timeBetweenWaves;
         if (currentWave == 15)
         {
-            // Implemnt some sorta multiplier here to make it harder over time
-            Debug.Log("ALL WAVES COMPLETE! Looping...");
+            Debug.Log("You win");
         }
         else
         {
@@ -261,5 +263,4 @@ public class Click : MonoBehaviour
             return true; 
         }
     }
-
 }
