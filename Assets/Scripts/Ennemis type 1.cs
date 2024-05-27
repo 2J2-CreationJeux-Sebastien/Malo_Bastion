@@ -14,6 +14,7 @@ public class Ennemistype1 : MonoBehaviour
     private int pointsIndex;
     private float randomNumber;
     [SerializeField] public int healthEnemytype1 = 50;
+    public GameObject bar;
 
     void Start()
     {
@@ -53,6 +54,8 @@ public class Ennemistype1 : MonoBehaviour
             Destroy(gameObject);
             Click.gold += 10;
         }
+
+        bar.transform.localScale = new Vector3((healthEnemytype1/50f), 1f, 1f);
     }
 }
 
