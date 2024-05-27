@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Click : MonoBehaviour
 {
-    public static int gold;
+    public static int gold = 200;
     public static int lives = 20;
     // Batiment Archer
     public GameObject archerTowerIcon; // UI pour construire un batiment archer 
@@ -49,7 +49,7 @@ public class Click : MonoBehaviour
         public float rate;
     }
     public Wave[] waves;
-    int currentWave = 0;
+    public static int currentWave = 0;
     public int timeBetweenWaves = 30;
     float waveCountDown;
     SpawnState state = SpawnState.START;
@@ -136,8 +136,9 @@ public class Click : MonoBehaviour
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
             }
 
-            if (hit.collider.gameObject.name == "magicTowerIcon")
+            if ((hit.collider.gameObject.name == "magicTowerIcon")&&(gold >= 200))
             {
+                gold -= 200;
                 buildUI.gameObject.SetActive(false);
                 magicTowerIcon.gameObject.SetActive(false);
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
@@ -156,8 +157,9 @@ public class Click : MonoBehaviour
                 GameObject.Find("button_close").gameObject.GetComponent<Collider2D>().enabled = true;
             }
 
-            if (hit.collider.gameObject.name == "archerTowerIcon")
+            if ((hit.collider.gameObject.name == "archerTowerIcon")&&(gold >= 100))
             {
+                gold -= 100;
                 buildUI.gameObject.SetActive(false);
                 archerTowerIcon.gameObject.SetActive(false);
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
@@ -242,7 +244,7 @@ public class Click : MonoBehaviour
         Invoke("ActivateWaveWarning", 5f);
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
-        if (currentWave == 15)
+        if (currentWave == 10)
         {
             Debug.Log("You win");
         }
