@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.UI;
 
 public class DebutJeu : MonoBehaviour
 {
