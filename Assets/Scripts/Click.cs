@@ -9,6 +9,11 @@ public class Click : MonoBehaviour
 {
     public static int gold = 200;
     public static int lives = 20;
+    public GameObject winMenuUI;
+    public GameObject oneStarWin;
+    public GameObject twoStarWin;
+    public GameObject threeStarWin;
+
     // Batiment Archer
     public GameObject archerTowerIcon; // UI pour construire un batiment archer 
     public GameObject pfarcherTower; // objet batiment archer 
@@ -246,7 +251,7 @@ public class Click : MonoBehaviour
         waveCountDown = timeBetweenWaves;
         if (currentWave == 10)
         {
-            Debug.Log("You win");
+            GameWin();
         }
         else
         {
@@ -263,6 +268,24 @@ public class Click : MonoBehaviour
         else 
         { 
             return true; 
+        }
+    }
+
+    void GameWin() 
+    {
+        Time.timeScale = 0;
+        winMenuUI.SetActive(true);
+        if (lives == 20)
+        {
+            threeStarWin.SetActive(true);
+        }
+        else if (lives >= 10)
+        {
+            twoStarWin.SetActive(true);
+        }
+        else 
+        { 
+            oneStarWin.SetActive(true);
         }
     }
 }
