@@ -7,9 +7,12 @@ using UnityEngine;
 
 public class Click : MonoBehaviour
 {
-    public static int gold = 200;
-    public static int lives = 20;
-    public GameObject winMenuUI;
+    public static int gold;
+    public static int lives;
+    public GameObject gameEndUI;
+
+    public GameObject starsWin;
+    public GameObject starsLose;
     public GameObject oneStarWin;
     public GameObject twoStarWin;
     public GameObject threeStarWin;
@@ -54,14 +57,19 @@ public class Click : MonoBehaviour
         public float rate;
     }
     public Wave[] waves;
-    public static int currentWave = 0;
-    public int timeBetweenWaves = 30;
+    public static int currentWave;
+    public float timeBetweenWaves;
     float waveCountDown;
     SpawnState state = SpawnState.START;
 
 
     void Start()
-    {   //Au debut du jeu il y a la tansition activer
+    {   
+        gold = 200;
+        lives = 20;
+        timeBetweenWaves = 30f;
+        currentWave = 9;
+        //Au debut du jeu il y a la tansition activer
         GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = true;
         //Arret de la transition quand fini
         Invoke("StopTransition", 1f);
@@ -73,7 +81,6 @@ public class Click : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(state);
         if (Input.GetMouseButtonDown(0)) // Si il y a un click activer CastRay 
         {
             CastRay();
@@ -103,6 +110,11 @@ public class Click : MonoBehaviour
         else if(waveWarningStart == true)
         {
             waveCountDown -= Time.deltaTime;
+        }
+
+        if (lives <= 0)
+        {
+            GameLose();
         }
     }
 
@@ -246,16 +258,16 @@ public class Click : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Completed");
-        Invoke("ActivateWaveWarning", 5f);
-        state = SpawnState.COUNTING;
-        waveCountDown = timeBetweenWaves;
+        currentWave+=1;
         if (currentWave == 10)
         {
             GameWin();
         }
-        else
+        else 
         {
-            currentWave++;
+            Invoke("ActivateWaveWarning", 5f);
+            waveCountDown = timeBetweenWaves;
+            state = SpawnState.COUNTING;
         }
     }
 
@@ -274,7 +286,8 @@ public class Click : MonoBehaviour
     void GameWin() 
     {
         Time.timeScale = 0;
-        winMenuUI.SetActive(true);
+        gameEndUI.SetActive(true);
+        starsWin.SetActive(true);
         if (lives == 20)
         {
             threeStarWin.SetActive(true);
@@ -287,5 +300,12 @@ public class Click : MonoBehaviour
         { 
             oneStarWin.SetActive(true);
         }
+    }
+
+    void GameLose() 
+    {
+        Time.timeScale = 0;
+        gameEndUI.SetActive(true);
+        starsLose.SetActive(true);
     }
 }

@@ -13,7 +13,7 @@ public class Ennemistype1 : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private int pointsIndex;
     private float randomNumber;
-    [SerializeField] public float healthEnemytype1 = 50f;
+    public float healthEnemytype1 = 50f;
     public GameObject bar;
 
     void Start()
