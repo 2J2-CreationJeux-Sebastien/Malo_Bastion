@@ -111,11 +111,6 @@ public class Click : MonoBehaviour
         {
             waveCountDown -= Time.deltaTime;
         }
-
-        if (lives <= 0)
-        {
-            GameLose();
-        }
     }
 
     void CastRay()
@@ -258,8 +253,15 @@ public class Click : MonoBehaviour
     void WaveCompleted()
     {
         Debug.Log("Wave Completed");
-        currentWave+=1;
-        if (currentWave == 10)
+        if (lives >= 1)
+        {
+            currentWave+=1;
+        } 
+        else 
+        {
+            GameLose();
+        }
+        if ((currentWave == 10)&&(lives >= 1))
         {
             GameWin();
         }

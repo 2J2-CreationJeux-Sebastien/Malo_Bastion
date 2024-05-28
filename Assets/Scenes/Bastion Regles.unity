@@ -945,6 +945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65431ff9a7366914386f2b4526a6c27f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionSlide1: {fileID: 1971605977}
+  transitionSlide3: {fileID: 1249505168}
 --- !u!114 &1864031287
 MonoBehaviour:
   m_ObjectHideFlags: 0

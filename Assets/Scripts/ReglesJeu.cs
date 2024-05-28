@@ -7,14 +7,16 @@ using Unity.UI;
 
 public class ReglesJeu : MonoBehaviour
 {
+    public GameObject transitionSlide1;
+    public GameObject transitionSlide3;
     void Start()
     {
-        GameObject.Find("transitionSlide 3").gameObject.GetComponent<Animator>().enabled = true;
+        transitionSlide3.GetComponent<Animator>().enabled = true;
     }
     public void LoadBastion()
     {
         Invoke("LoadScene", 1f);
-        GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = true;
+        transitionSlide1.GetComponent<Animator>().enabled = true;
     }
     void LoadScene()
     {

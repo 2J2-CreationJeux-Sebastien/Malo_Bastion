@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public GameObject transitionSlide2;
     public void Pause()
     {
         Time.timeScale = 0;
@@ -22,7 +23,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         Invoke("LoadScene", 1f);
-        GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = true;
+
+        transitionSlide2.GetComponent<Animator>().enabled = true;
         pauseMenuUI.SetActive(false);
     }
 

@@ -7,10 +7,11 @@ using Unity.UI;
 
 public class DebutJeu : MonoBehaviour
 {
+    public GameObject transitionSlide1;
     public void LoadReglesJeu() 
     {
         Invoke("LoadScene", 1f);
-        GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = true;
+        transitionSlide1.GetComponent<Animator>().enabled = true;
     }
 
     void LoadScene()
