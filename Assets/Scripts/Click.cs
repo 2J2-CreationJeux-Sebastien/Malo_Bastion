@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,12 +21,14 @@ public class Click : MonoBehaviour
     // Batiment Archer
     public GameObject archerTowerIcon; // UI pour construire un batiment archer 
     public GameObject pfarcherTower; // objet batiment archer 
+    public Sprite archerTowerLevel2; 
 
     //Batiment Magic
     public GameObject magicTowerIcon;
     public GameObject pfmagicTower;
+    public Sprite magicTowerLevel2;
 
-    
+
     // UI pour batiments 
     public GameObject upgrade_circle; // UI pour ameliorer et vendre un batiment 
     public GameObject upgrade_button; // UI boutton pour ameliorer
@@ -65,10 +68,10 @@ public class Click : MonoBehaviour
 
     void Start()
     {   
-        gold = 200;
+        gold = 300;
         lives = 20;
         timeBetweenWaves = 30f;
-        currentWave = 9;
+        currentWave = 0;
         //Au debut du jeu il y a la tansition activer
         GameObject.Find("transitionSlide 1").gameObject.GetComponent<Animator>().enabled = true;
         //Arret de la transition quand fini
@@ -194,9 +197,11 @@ public class Click : MonoBehaviour
             {
                 if(lastBuildingHit.gameObject.tag == "archerTower"){
                     GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    gold += 90;
                 }
                 if(lastBuildingHit.gameObject.tag == "magicTower"){
                     GameObject.Find("pfmagicTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    gold += 180;
                 }
                 lastBuildingHit.transform.parent.gameObject.SetActive(true);
                 lastBuildingHit.transform.parent.gameObject.GetComponent<Collider2D>().enabled = true;
@@ -213,6 +218,27 @@ public class Click : MonoBehaviour
                 //position initial des ennemis
                 spawnpoint = new Vector2(waypoint_1.gameObject.transform.position.x, waypoint_1.gameObject.transform.position.y);
                 //Si on click wave_warning, ca creer un clone de ennemis 
+            }
+            if (hit.collider.gameObject.name == "upgrade_button")
+            {
+                if ((lastBuildingHit.gameObject.tag == "archerTower")&&(gold >= 110))
+                {
+                    lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    lastBuildingHit.gameObject.transform.GetChild(3).gameObject.SetActive(false);
+                    lastBuildingHit.gameObject.transform.GetChild(4).gameObject.SetActive(false);
+                    lastBuildingHit.gameObject.transform.GetChild(5).gameObject.SetActive(true);
+                    lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = archerTowerLevel2;
+                    lastBuildingHit.GetComponent<ArcherTower>().Level2();
+                    gold -= 110;
+                }
+                if ((lastBuildingHit.gameObject.tag == "magicTower")&& (gold >= 220))
+                {
+                    lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = magicTowerLevel2;
+                    lastBuildingHit.GetComponent<MagicTower>().Level2();
+                    gold -= 220;
+                }
+                button_close.gameObject.GetComponent<Collider2D>().enabled = false;
             }
         }
     }

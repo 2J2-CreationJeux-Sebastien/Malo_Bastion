@@ -1296,28 +1296,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2118938111938581083, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
   m_PrefabInstance: {fileID: 4308804674554323520}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &323562341
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323562337}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b65c7ac783169384981292fb3c0cb7ee, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &323562344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1411126836016933937, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
@@ -6678,8 +6656,10 @@ MonoBehaviour:
   threeStarWin: {fileID: 645830806}
   archerTowerIcon: {fileID: 1342306249}
   pfarcherTower: {fileID: 3214789726710784190, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
+  archerTowerLevel2: {fileID: 4018448242490263829, guid: dfd9e0d439028274abf8534e5dfb6a83, type: 3}
   magicTowerIcon: {fileID: 331534900}
   pfmagicTower: {fileID: 6811263922251611996, guid: d7344828c45e5e84cb20e00b21d6ea82, type: 3}
+  magicTowerLevel2: {fileID: -4085969566687037828, guid: d41be138032b2e741a2efb7ad200d45a, type: 3}
   upgrade_circle: {fileID: 1138866873}
   upgrade_button: {fileID: 1081808815}
   sell_button: {fileID: 1037902170}
@@ -6700,51 +6680,51 @@ MonoBehaviour:
     - {fileID: 323562344}
     count: 10
     rate: 2
-  - name: 1
+  - name: 2
     enemy:
     - {fileID: 323562344}
-    count: 10
+    count: 15
     rate: 2
-  - name: 1
-    enemy:
-    - {fileID: 323562344}
-    count: 10
-    rate: 2
-  - name: 1
-    enemy:
-    - {fileID: 323562344}
-    count: 10
-    rate: 2
-  - name: 1
-    enemy:
-    - {fileID: 323562344}
-    count: 10
-    rate: 2
-  - name: 1
-    enemy:
-    - {fileID: 323562344}
-    count: 10
-    rate: 2
-  - name: 1
-    enemy:
-    - {fileID: 323562344}
-    count: 10
-    rate: 2
-  - name: 1
-    enemy:
-    - {fileID: 323562344}
-    count: 10
-    rate: 2
-  - name: 1
-    enemy:
-    - {fileID: 323562344}
-    count: 10
-    rate: 2
-  - name: 1
+  - name: 3
     enemy:
     - {fileID: 323562344}
     count: 20
     rate: 2
+  - name: 4
+    enemy:
+    - {fileID: 323562344}
+    count: 25
+    rate: 2
+  - name: 5
+    enemy:
+    - {fileID: 323562344}
+    count: 30
+    rate: 3
+  - name: 6
+    enemy:
+    - {fileID: 323562344}
+    count: 35
+    rate: 3
+  - name: 7
+    enemy:
+    - {fileID: 323562344}
+    count: 40
+    rate: 3
+  - name: 8
+    enemy:
+    - {fileID: 323562344}
+    count: 45
+    rate: 3
+  - name: 9
+    enemy:
+    - {fileID: 323562344}
+    count: 50
+    rate: 3
+  - name: 10
+    enemy:
+    - {fileID: 323562344}
+    count: 60
+    rate: 3
   timeBetweenWaves: 0
 --- !u!1 &1571963241
 GameObject:
@@ -9242,10 +9222,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2118938111938581083, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 323562341}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9269e56ab8330984b8bff773fb6d0e16, type: 3}
 --- !u!1001 &6375647415781274603
 PrefabInstance:

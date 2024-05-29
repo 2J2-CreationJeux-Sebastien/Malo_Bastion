@@ -38,29 +38,11 @@ public class ProjectileArrow : MonoBehaviour {
                 {
                     ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
                 }
-
-
-                if (archerTower != null) 
-                {
-                    archerTower.GetComponent<ArcherTower>().canShoot = true;
-                }
-                if (magicTower != null)
-                {
-                    magicTower.GetComponent<MagicTower>().canShoot = true;
-                }
                 Destroy(gameObject);
             }
         }
         else 
         {
-            if (archerTower != null)
-            {
-                archerTower.GetComponent<ArcherTower>().canShoot = true;
-            }
-            if (magicTower != null)
-            {
-                magicTower.GetComponent<MagicTower>().canShoot = true;
-            }
             Destroy(gameObject);
         }
     }
