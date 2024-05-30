@@ -18,18 +18,19 @@ public class ArcherTower : MonoBehaviour {
     public GameObject range;
     // Met le game object de 'upgrade_button' dans une variable pour aceder son 'SpriteRenderer' et 'Collider' pour le niveau max
     public GameObject upgradeButton;
+    // Met le game object de 'archerTowerLevelprice' dans une variable pour aceder son 'SpriteRenderer'
+    public GameObject archerTowerLevelprice;
 
     // Variable pour enregistrer une image de 'archerlevel3price'
-    public Sprite level3price;
+    public Sprite archerLevel3price;
     // Variable pour enregistrer une image de 'max'
     public Sprite maxUpgrade;
-    
-
 
     // Variable bolenne qui determine si la tour peut tirer
     public bool canShoot;
-
+    // Nombre original pour compteur de temp pour mettre du temp entre les tires
     public float timeBetweenShots;
+    // Compteur de temp pour mettre du temp entre les tires
     public float shotsCountdown;
     public int archerTowerLevel;
 
@@ -75,6 +76,7 @@ public class ArcherTower : MonoBehaviour {
         timeBetweenShots = 0.35f;
         circleCollider.GetComponent<CircleCollider2D>().radius = 4.2f;
         range.gameObject.transform.localScale = new Vector3(1.02f, 1.02f, 1.02f);
+        archerTowerLevelprice.GetComponent<SpriteRenderer>().sprite = archerLevel3price;
     }
     public void Level3()
     {
@@ -85,5 +87,6 @@ public class ArcherTower : MonoBehaviour {
         // Faire un changement d'image pour annoncer le niveau max
         upgradeButton.GetComponent<SpriteRenderer>().sprite = maxUpgrade;
         upgradeButton.GetComponent<Collider2D>().enabled = false;
+        archerTowerLevelprice.SetActive(false);
     }
 }

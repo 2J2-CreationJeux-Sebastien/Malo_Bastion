@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8289257605905178725}
   - component: {fileID: 7418890930931496737}
   m_Layer: 0
-  m_Name: archerTowerLevel2price_0
+  m_Name: archerTowerLevelprice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,8 @@ MonoBehaviour:
   circleCollider: {fileID: 1765049611991091512}
   range: {fileID: 3233408303381598280}
   upgradeButton: {fileID: 6908539963532572025}
-  level3price: {fileID: -4832003695675994438, guid: a6b42c3f8f793c14ba1f8a5682cf4c39, type: 3}
+  archerTowerLevelprice: {fileID: 901914342005458404}
+  archerLevel3price: {fileID: -4832003695675994438, guid: a6b42c3f8f793c14ba1f8a5682cf4c39, type: 3}
   maxUpgrade: {fileID: 1394827752623306727, guid: d2e4eccc453d174418cb0cbea0e0705b, type: 3}
   canShoot: 1
   timeBetweenShots: 0

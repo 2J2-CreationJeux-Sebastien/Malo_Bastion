@@ -7,17 +7,22 @@ using UnityEngine;
 
 public class MagicTower : MonoBehaviour {
 
+    // MEME COMMENTAIRES QUE Archer.cs :)
+
     private Vector3 projectileShootFromPosition;
     public GameObject magicProjectile;
     public GameObject circleCollider;
     public GameObject range;
     public GameObject upgradeButton;
+    public GameObject magicTowerLevelprice;
 
+
+    public Sprite magicLevel3price;
     public Sprite maxUpgrade;
 
     public bool canShoot;
     public float timeBetweenShots;
-    public float shotsCoundown;
+    public float shotsCountdown;
     public int magicTowerLevel;
 
 
@@ -26,7 +31,7 @@ public class MagicTower : MonoBehaviour {
         projectileShootFromPosition = new Vector2((gameObject.transform.GetChild(1).transform.position.x), (gameObject.transform.GetChild(1).transform.position.y));
         canShoot = true;
         timeBetweenShots = 1f;
-        shotsCoundown = timeBetweenShots;
+        shotsCountdown = timeBetweenShots;
     }
 
     private void Update() {
@@ -38,11 +43,11 @@ public class MagicTower : MonoBehaviour {
         }
         if (canShoot == false)
         {
-            shotsCoundown -= Time.deltaTime;
+            shotsCountdown -= Time.deltaTime;
         }
-        if (shotsCoundown <= 0)
+        if (shotsCountdown <= 0)
         {
-            shotsCoundown = timeBetweenShots;
+            shotsCountdown = timeBetweenShots;
             canShoot = true;
         }
     }
@@ -52,6 +57,7 @@ public class MagicTower : MonoBehaviour {
         timeBetweenShots = 0.90f;
         circleCollider.GetComponent<CircleCollider2D>().radius = 3.5f;
         range.gameObject.transform.localScale = new Vector3(0.73f, 0.73f, 0.73f);
+        magicTowerLevelprice.GetComponent<SpriteRenderer>().sprite = magicLevel3price;
     }
 
     public void Level3()
@@ -62,5 +68,6 @@ public class MagicTower : MonoBehaviour {
         range.gameObject.transform.localScale = new Vector3(0.73f, 0.73f, 0.73f);
         upgradeButton.GetComponent<SpriteRenderer>().sprite = maxUpgrade;
         upgradeButton.GetComponent<Collider2D>().enabled = false;
+        magicTowerLevelprice.SetActive(false);
     }
 }
