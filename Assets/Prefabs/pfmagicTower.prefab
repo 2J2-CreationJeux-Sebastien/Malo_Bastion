@@ -569,10 +569,12 @@ MonoBehaviour:
   circleCollider: {fileID: 7955450379008058644}
   range: {fileID: 7726042889831853020}
   upgradeButton: {fileID: 4367814955296800172}
+  magicTowerLevelprice: {fileID: 6468661708031362312}
+  magicLevel3price: {fileID: 4089443173496080401, guid: 500c342db74440347a1b33fc0b649227, type: 3}
   maxUpgrade: {fileID: 1394827752623306727, guid: d2e4eccc453d174418cb0cbea0e0705b, type: 3}
   canShoot: 1
   timeBetweenShots: 0
-  shotsCoundown: 0
+  shotsCountdown: 0
   magicTowerLevel: 0
 --- !u!1 &7726042889831853020
 GameObject:

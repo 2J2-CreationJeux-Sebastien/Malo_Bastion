@@ -71,7 +71,7 @@ public class Click : MonoBehaviour
 
     void Start()
     {   
-        gold = 3000;
+        gold = 400;
         lives = 20;
         timeBetweenWaves = 30f;
         currentWave = 0;

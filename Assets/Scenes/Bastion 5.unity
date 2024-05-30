@@ -6657,9 +6657,12 @@ MonoBehaviour:
   archerTowerIcon: {fileID: 1342306249}
   pfarcherTower: {fileID: 3214789726710784190, guid: 783a61300acbfee429e763eb2cf13a6a, type: 3}
   archerTowerLevel2: {fileID: 4018448242490263829, guid: dfd9e0d439028274abf8534e5dfb6a83, type: 3}
+  archerTowerLevel3: {fileID: 5177398711879332927, guid: bd210f65287e7f2418ac4d5edcf1077c, type: 3}
+  archerLevel3: {fileID: -1080709004345177172, guid: 61ef24baa9c873747b35c7dc503ae1e5, type: 3}
   magicTowerIcon: {fileID: 331534900}
   pfmagicTower: {fileID: 6811263922251611996, guid: d7344828c45e5e84cb20e00b21d6ea82, type: 3}
   magicTowerLevel2: {fileID: -4085969566687037828, guid: d41be138032b2e741a2efb7ad200d45a, type: 3}
+  magicTowerLevel3: {fileID: 3866056881033720990, guid: 974bcbed1455e0144b64f54a855d7dfd, type: 3}
   upgrade_circle: {fileID: 1138866873}
   upgrade_button: {fileID: 1081808815}
   sell_button: {fileID: 1037902170}
