@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public GameObject pauseMenuUI;
     public GameObject transitionSlide2;
     public void Pause()

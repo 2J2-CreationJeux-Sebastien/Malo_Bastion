@@ -32,19 +32,23 @@ public class ArcherTower : MonoBehaviour {
     public float timeBetweenShots;
     // Compteur de temp pour mettre du temp entre les tires
     public float shotsCountdown;
+    // Variable pour determiner le niveau du la tour archer
     public int archerTowerLevel;
 
     private void Awake() {
         archerTowerLevel = 1;
         // Done une valeur a la variable projectileShootFromPosition
         projectileShootFromPosition = new Vector2((gameObject.transform.position.x), (gameObject.transform.position.y+0.5f));
+        // Au debut on peut maintenant tirer
         canShoot = true;
+        // Met une valeur a timeBetweenShots
         timeBetweenShots = 0.5f;
+        // shotsCountdown = timeBetweenShots :) ;
         shotsCountdown = timeBetweenShots;
     }
 
     private void Update() {
-        // Si on click 'SPACE' et si on peut tirer et si il y a au moins un ennemis dans la list 'currentEnnemis'
+        // Si on peut tirer et si il y a au moins un ennemis dans la list 'currentEnnemis'
         if ((canShoot == true)&&(circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0)) 
         {
             // Cree des clones de arrow quand on tire a la position 'projectileShootFromPosition'
@@ -70,23 +74,33 @@ public class ArcherTower : MonoBehaviour {
         }
     }
 
+    // Quand on ameliore au niveau 2
     public void Level2() 
     {
+        // Ajoute 1 au niveau de la tour
         archerTowerLevel += 1;
+        // Le temp pour tirer est plus cours
         timeBetweenShots = 0.35f;
+        // Le radius du 'CircleCollider2D' est agrandit
         circleCollider.GetComponent<CircleCollider2D>().radius = 4.2f;
+        // L'image du 'range' est agrandit pour etre le meme que le 'CircleCollider2D'
         range.gameObject.transform.localScale = new Vector3(1.02f, 1.02f, 1.02f);
+        // Affiche maintenant le prix du prochain niveau -> (3)
         archerTowerLevelprice.GetComponent<SpriteRenderer>().sprite = archerLevel3price;
     }
     public void Level3()
     {
+        // Ajoute 1 au niveau de la tour
         archerTowerLevel += 1;
+        // Le temp pour tirer est plus cours
         timeBetweenShots = 0.20f;
         circleCollider.GetComponent<CircleCollider2D>().radius = 4.2f;
         range.gameObject.transform.localScale = new Vector3(1.02f, 1.02f, 1.02f);
-        // Faire un changement d'image pour annoncer le niveau max
+        // Faire un changement d'image pour annoncer le niveau max de la tour
         upgradeButton.GetComponent<SpriteRenderer>().sprite = maxUpgrade;
+        // Enleve le 'Collider2D' pour ne plus etre capable d'ameliorer
         upgradeButton.GetComponent<Collider2D>().enabled = false;
+        // Enleve l'affichement de prix
         archerTowerLevelprice.SetActive(false);
     }
 }

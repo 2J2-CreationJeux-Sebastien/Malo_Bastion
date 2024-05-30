@@ -9,13 +9,9 @@ public class ProjectileArrow : MonoBehaviour {
     public GameObject ennemis;
     public float moveSpeed;
     public GameObject circleCollider;
-    public float archerDamage;
-    public float magicDamage;
 
     void Start()
     {
-        //archerDamage = 10f;
-        //magicDamage = 20f;
         if (circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0);
         {
             ennemis = circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis[0];

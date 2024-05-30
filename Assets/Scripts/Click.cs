@@ -94,6 +94,10 @@ public class Click : MonoBehaviour
         
         if (state == SpawnState.WAITING)
         {
+            if (lives <= 0)
+            {
+                WaveCompleted();
+            }
             if (!EnemyIsAlive())
             {
                 WaveCompleted();
@@ -110,7 +114,7 @@ public class Click : MonoBehaviour
             Invoke("DeactivateWaveWarning", 1f);
             if (state != SpawnState.SPAWNING)
             {
-                StartCoroutine(SpawnWave(waves[currentWave]));
+                StartCoroutine(SpawnWave(waves[currentWave-1]));
             }
         }
         else if(waveWarningStart == true)
@@ -214,6 +218,7 @@ public class Click : MonoBehaviour
 
             if (hit.collider.gameObject.name == "wave_warning")
             {
+                currentWave += 1;
                 waveWarningStart = true;
                 waveCountDown = 0;
                 wave_warning.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("WaveWarning", true);
@@ -303,12 +308,7 @@ public class Click : MonoBehaviour
     }
     void WaveCompleted()
     {
-        Debug.Log("Wave Completed");
-        if (lives >= 1)
-        {
-            currentWave+=1;
-        } 
-        else 
+        if (lives <= 0)
         {
             GameLose();
         }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Ennemistype1 : MonoBehaviour
 {
+    //
     [SerializeField] Transform[] Points;
     [SerializeField] Transform[] Points1;
     [SerializeField] Transform[] Points2;
