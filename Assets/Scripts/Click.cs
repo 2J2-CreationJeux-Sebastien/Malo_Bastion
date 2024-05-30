@@ -21,12 +21,15 @@ public class Click : MonoBehaviour
     // Batiment Archer
     public GameObject archerTowerIcon; // UI pour construire un batiment archer 
     public GameObject pfarcherTower; // objet batiment archer 
-    public Sprite archerTowerLevel2; 
+    public Sprite archerTowerLevel2;
+    public Sprite archerTowerLevel3;
+    public Sprite archerLevel3;
 
     //Batiment Magic
     public GameObject magicTowerIcon;
     public GameObject pfmagicTower;
     public Sprite magicTowerLevel2;
+    public Sprite magicTowerLevel3;
 
 
     // UI pour batiments 
@@ -68,7 +71,7 @@ public class Click : MonoBehaviour
 
     void Start()
     {   
-        gold = 300;
+        gold = 3000;
         lives = 20;
         timeBetweenWaves = 30f;
         currentWave = 0;
@@ -197,11 +200,11 @@ public class Click : MonoBehaviour
             {
                 if(lastBuildingHit.gameObject.tag == "archerTower"){
                     GameObject.Find("pfarcherTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    gold += 90;
+                    gold += 100;
                 }
                 if(lastBuildingHit.gameObject.tag == "magicTower"){
                     GameObject.Find("pfmagicTower(Clone)").gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    gold += 180;
+                    gold += 200;
                 }
                 lastBuildingHit.transform.parent.gameObject.SetActive(true);
                 lastBuildingHit.transform.parent.gameObject.GetComponent<Collider2D>().enabled = true;
@@ -221,22 +224,44 @@ public class Click : MonoBehaviour
             }
             if (hit.collider.gameObject.name == "upgrade_button")
             {
-                if ((lastBuildingHit.gameObject.tag == "archerTower")&&(gold >= 110))
+                if (lastBuildingHit.gameObject.tag == "archerTower") 
                 {
-                    lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    lastBuildingHit.gameObject.transform.GetChild(3).gameObject.SetActive(false);
-                    lastBuildingHit.gameObject.transform.GetChild(4).gameObject.SetActive(false);
-                    lastBuildingHit.gameObject.transform.GetChild(5).gameObject.SetActive(true);
-                    lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = archerTowerLevel2;
-                    lastBuildingHit.GetComponent<ArcherTower>().Level2();
-                    gold -= 110;
+                    if ((gold >= 120) && (lastBuildingHit.GetComponent<ArcherTower>().archerTowerLevel == 1))
+                    {
+                        lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                        lastBuildingHit.gameObject.transform.GetChild(3).gameObject.SetActive(false);
+                        lastBuildingHit.gameObject.transform.GetChild(4).gameObject.SetActive(false);
+                        lastBuildingHit.gameObject.transform.GetChild(5).gameObject.SetActive(true);
+                        lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = archerTowerLevel2;
+                        lastBuildingHit.GetComponent<ArcherTower>().Level2();
+                        gold -= 120;
+                    }
+                    else if ((gold >= 160) && (lastBuildingHit.GetComponent<ArcherTower>().archerTowerLevel == 2))
+                    {
+                        lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                        lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = archerTowerLevel3;
+                        lastBuildingHit.gameObject.transform.GetChild(5).gameObject.GetComponent<SpriteRenderer>().sprite = archerLevel3;
+                        lastBuildingHit.GetComponent<ArcherTower>().Level3();
+                        gold -= 160;
+                    }
                 }
-                if ((lastBuildingHit.gameObject.tag == "magicTower")&& (gold >= 220))
+
+                if (lastBuildingHit.gameObject.tag == "magicTower") 
                 {
-                    lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = magicTowerLevel2;
-                    lastBuildingHit.GetComponent<MagicTower>().Level2();
-                    gold -= 220;
+                    if ((gold >= 220)&&(lastBuildingHit.GetComponent<MagicTower>().magicTowerLevel == 1))
+                    {
+                        lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                        lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = magicTowerLevel2;
+                        lastBuildingHit.GetComponent<MagicTower>().Level2();
+                        gold -= 220;
+                    }
+                    else if ((gold >= 280) && (lastBuildingHit.GetComponent<MagicTower>().magicTowerLevel == 2))
+                    {
+                        lastBuildingHit.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                        lastBuildingHit.gameObject.GetComponent<SpriteRenderer>().sprite = magicTowerLevel3;
+                        lastBuildingHit.GetComponent<MagicTower>().Level3();
+                        gold -= 280;
+                    }
                 }
                 button_close.gameObject.GetComponent<Collider2D>().enabled = false;
             }

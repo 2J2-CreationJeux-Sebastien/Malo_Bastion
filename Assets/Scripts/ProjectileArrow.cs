@@ -7,13 +7,15 @@ public class ProjectileArrow : MonoBehaviour {
     public GameObject archerTower;
     public GameObject magicTower;
     public GameObject ennemis;
-    public float moveSpeed = 1f;
+    public float moveSpeed;
     public GameObject circleCollider;
- 
-
+    public float archerDamage;
+    public float magicDamage;
 
     void Start()
     {
+        //archerDamage = 10f;
+        //magicDamage = 20f;
         if (circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis.Count > 0);
         {
             ennemis = circleCollider.GetComponent<CurrentEnnemis>().currentEnnemis[0];
@@ -36,7 +38,7 @@ public class ProjectileArrow : MonoBehaviour {
                 }
                 if (gameObject.name == "magic projectile(Clone)")
                 {
-                    ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 20;
+                    ennemis.GetComponent<Ennemistype1>().healthEnemytype1 -= 25;
                 }
                 Destroy(gameObject);
             }
