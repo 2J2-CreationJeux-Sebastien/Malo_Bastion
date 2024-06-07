@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject ennemis;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter2D(Collision2D infoCollision)
+    {
+        if ((infoCollision.gameObject.tag == "ennemis") && (PlayerController.attack == true))
+        { 
+            
+        }
     }
 }

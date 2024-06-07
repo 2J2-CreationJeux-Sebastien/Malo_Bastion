@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     float vitesseY;      //vitesse verticale 
     public float vitesseYMax;   //vitesse de saut désirée
 
-    public static bool attaque;
+    public static bool attack;
 
     void Start()
     {
@@ -50,9 +50,9 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && attaque == false)
+        if (Input.GetKeyDown(KeyCode.Space) && attack == false)
         {
-            attaque = true;
+            attack = true;
             Invoke("AnnulerAttaque", 1f);
             GetComponent<Animator>().SetTrigger("attack");
         }
@@ -86,6 +86,6 @@ public class PlayerController : MonoBehaviour
 
     void AnnulerAttaque()
     {
-        attaque = false;
+        attack = false;
     }
 }
