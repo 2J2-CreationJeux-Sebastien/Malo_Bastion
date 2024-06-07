@@ -8,10 +8,16 @@ public class CurrentEnnemis : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D infoCollision)
     {
-        currentEnnemis.Add(infoCollision.gameObject);
+        if (infoCollision.gameObject.tag == "ennemis") 
+        {
+            currentEnnemis.Add(infoCollision.gameObject);
+        }
     }
     void OnTriggerExit2D(Collider2D infoCollision)
     {
-        currentEnnemis.Remove(currentEnnemis[0]);
+        if (infoCollision.gameObject.tag == "ennemis")
+        {
+            currentEnnemis.Remove(currentEnnemis[0]);
+        }
     }
 }
