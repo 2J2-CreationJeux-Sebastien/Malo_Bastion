@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4270884053792918378}
   - component: {fileID: -6266230610481482846}
   - component: {fileID: 4642153409674958816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   archerTower: {fileID: 0}
+  magicTower: {fileID: 0}
   ennemis: {fileID: 0}
   moveSpeed: 1
-  circleollider: {fileID: 0}
+  circleCollider: {fileID: 0}
